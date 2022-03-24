@@ -1,8 +1,30 @@
-﻿namespace vet.Models {
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace vet.Models {
     public class Consultas {
+
         public int Id { get; set; }
+
         public DateTime Data { get; set; }
+
         public string Observacoes { get; set; }
+
         public Decimal ValorConsulta  { get; set; }
+
+        /// <summary>
+        /// FK para o animal que participa na Consulta
+        /// </summary>
+        public int AnimalFK { get; set; }
+        [ForeignKey(nameof(AnimalFK))]
+        public Animais Animal { get; set; }
+
+        /// <summary>
+        /// FK para o Veterinário que efetua a Consulta
+        /// </summary>
+        [ForeignKey(nameof(Veterinario))]
+        public int VeterinarioFK { get; set; }
+        public MedicosVeterinarios Veterinario { get; set; }
+
+
     }
 }
