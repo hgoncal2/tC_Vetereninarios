@@ -9,6 +9,7 @@
 
         public string Nome { get; set; }
 
+        [Display(Name = "Espécie")]
         public string NumCedulaProf { get; set; }
 
         public string Fotografia { get; set; }

@@ -17,13 +17,15 @@ namespace vet.Models {
         /// </summary>
         [Key]
         public int Id { get; set; }
+
         /// <summary>
         /// Nome do dono do animal
         /// </summary>
         [Required(ErrorMessage = "O {0} é de preenchimento obrigatório")]
         [StringLength(50, ErrorMessage = "O {0} não pode ter mais do que {1} caracteres.")]
-
+        [RegularExpression("[A-Za-záéíóúâêîôûàèìòùçñãõÁÉÍÓÚÂ '-]+",ErrorMessage ="Só pode usar letras no nome")]
         public string Nome { get; set; }
+
         /// <summary>
         /// Sexo do dono
         /// Mm - masculino; Ff - feminino
@@ -32,6 +34,7 @@ namespace vet.Models {
         [StringLength(1, ErrorMessage = "O {0} não pode ter mais do que {1} carácter.")]
         [RegularExpression("[MmFf]", ErrorMessage = "Só pode escrever F/f para feminino ou M/m para masculino")]
         public string Sexo { get; set; }
+
         /// <summary>
         /// Número de identificação fiscal do cliente
         /// </summary>
